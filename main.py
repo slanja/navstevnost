@@ -5,7 +5,10 @@ from selenium.webdriver.common.by import By
 import time
 import csv
 
-driver = webdriver.Firefox()
+options = Options()
+options.headless = True
+
+driver = webdriver.Firefox(options=options)
 
 driver.get("https://www.sportovisteznojmo.cz/mestska-plovarna-louka")
 
