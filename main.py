@@ -36,7 +36,7 @@ while True:
 
 	# Zapisování do cvs souboru
 
-	file = open("data.csv", "a", newline="")
+	file = open("data.csv", "a", encoding="UTF-8" ,newline="")
 
 	writer = csv.writer(file) 
 	writer.writerow(data_object)
