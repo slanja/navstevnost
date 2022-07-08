@@ -44,7 +44,7 @@ for item in raw_temperature:
 fig, axs = plt.subplots(2, sharex=True)
 
 axs[1].plot(current_time, water_temperature, color = "r", linestyle = "solid", label = "teplota vody")
-axs[1].plot(current_time, temperature, color = "g", linestyle = "solid", label = "teplota")
+axs[1].plot(current_time, temperature, color = "g", linestyle = "solid", label = "teplota vzduchu")
 axs[0].plot(current_time, visitors, color = "b", linestyle = "solid", label = "návštěvníci")
 
 axs[0].grid(color="gray", linestyle="-", linewidth=0.2)
