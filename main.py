@@ -12,6 +12,7 @@ driver = webdriver.Firefox(options=options)
 
 driver.get("https://www.sportovisteznojmo.cz/mestska-plovarna-louka")
 
+# Potvrzení cookies
 time.sleep(5) # kód počká než se načte cookies
 
 agree = driver.find_elements(By.XPATH, "/html/body/div[1]/div[1]/div/div[2]/div/a")[0]
@@ -21,6 +22,7 @@ agree.click()
 
 
 while True:
+	# Zjištění dat ohledně návštěvníků a teplot
 	visitors = driver.find_element(By.XPATH, "/html/body/div[2]/main/div/div/section/div/div/div[7]/div/div[1]/div/div/div/div/div/div")
 
 	water_temperature = driver.find_element(By.XPATH, "/html/body/div[2]/main/div/div/section/div/div/div[7]/div/div[2]/div/div/div/div/div/div")
@@ -43,6 +45,13 @@ while True:
 
 	file.close()
 
+	# Ukončení pokud bude 21:10
+
+	sliced_time = int(current_time[-6:-3])
+
+	if sliced_time >= 21:
+		break
+
 	time.sleep(600)
 
 	driver.get(driver.current_url)
@@ -50,3 +59,4 @@ while True:
 	driver.refresh()
 	
 driver.close()
+print("END")
